@@ -1,0 +1,23 @@
+{
+  "name": "nxlib/request",
+  "description": "nxlib-request",
+  "keywords": ["php request"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Garming Lau",
+      "email": "garming@msn.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "NxLib\\Request\\": "src/request",
+      "NxLib\\Response\\": "src/response"
+    }
+  }
+}
