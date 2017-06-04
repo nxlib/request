@@ -28,7 +28,7 @@ class ParamsInputData
             }
             if(strpos($_SERVER['HTTP_CONTENT_TYPE'],'application/json;') === 0){
                 //content-type=application/json;
-                static::$rawParams = json_encode($raw_data,1);
+                static::$rawParams = json_decode($raw_data,1);
             }
         }else{
             //other content-type

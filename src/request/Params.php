@@ -58,8 +58,6 @@ class Params
         switch ($_SERVER['REQUEST_METHOD']){
             case 'GET':
                 return $_GET;
-            case 'POST':
-                return array_merge($_GET,$_POST);
             default:
                 static::initRawParams();
                 return array_merge($_GET,$_POST,static::$rawParams);
