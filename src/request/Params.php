@@ -109,8 +109,8 @@ class Params
     }
 
     private static function initRawParams(){
-        if(!is_null(static::rawParams)){
-            return;
+        if(!is_null(static::$rawParams)){
+            return [];
         }
         static::$rawParams = ParamsInputData::init();
     }

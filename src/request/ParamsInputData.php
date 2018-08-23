@@ -19,7 +19,7 @@ class ParamsInputData
         }
         $raw_data = file_get_contents('php://input', 'r');
         if(empty($raw_data)){
-            return;
+            return [];
         }
         if(isset($_SERVER['HTTP_CONTENT_TYPE'])){
             if(strpos($_SERVER['HTTP_CONTENT_TYPE'],'multipart/form-data;') === 0){
