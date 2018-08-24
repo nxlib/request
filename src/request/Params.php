@@ -60,7 +60,8 @@ class Params
                 return $_GET;
             default:
                 static::initRawParams();
-                return array_merge($_GET,$_POST,static::$rawParams);
+                $rawParams = is_array(static::$rawParams) ?? [];
+                return array_merge($_GET,$_POST,$rawParams);
         }
     }
 

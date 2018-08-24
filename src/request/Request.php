@@ -12,4 +12,13 @@ namespace NxLib\Request;
 class Request
 {
 
+    public static function redirect($url,$refreshTime = 1)
+    {
+        if(headers_sent()){
+            header("Refresh: {$refreshTime}; url={$url}");
+            return;
+        }
+        header("Location: {$url}");
+        return;
+    }
 }
