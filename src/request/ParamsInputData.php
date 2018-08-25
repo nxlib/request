@@ -21,7 +21,8 @@ class ParamsInputData
         if(empty($raw_data)){
             return;
         }
-        if(isset($_SERVER['HTTP_CONTENT_TYPE'])){
+        $contentType = isset($_SERVER['HTTP_CONTENT_TYPE']) ? $_SERVER['HTTP_CONTENT_TYPE'] : (isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : "");
+        if(!empty($contentType)){
             if(strpos($_SERVER['HTTP_CONTENT_TYPE'],'multipart/form-data;') === 0){
                 //content-type=multipart/form-data;
                 static::$rawParams = static::raw_multipart_form_data_handler($raw_data);
