@@ -22,12 +22,13 @@ class ParamsInputData
             return;
         }
         $contentType = isset($_SERVER['HTTP_CONTENT_TYPE']) ? $_SERVER['HTTP_CONTENT_TYPE'] : (isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : "");
+        $contentType .= ";";
         if(!empty($contentType)){
-            if(strpos($_SERVER['HTTP_CONTENT_TYPE'],'multipart/form-data;') === 0){
+            if(strpos($contentType,'multipart/form-data;') === 0){
                 //content-type=multipart/form-data;
                 static::$rawParams = static::raw_multipart_form_data_handler($raw_data);
             }
-            if(strpos($_SERVER['HTTP_CONTENT_TYPE'],'application/json;') === 0){
+            if(strpos($contentType,'application/json;') === 0){
                 //content-type=application/json;
                 static::$rawParams = json_decode($raw_data,1);
             }
